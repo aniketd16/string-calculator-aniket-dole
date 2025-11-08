@@ -21,6 +21,10 @@ class StringCalculator
     # Now split numbers string correctly
     nums = numbers.split(regex).reject(&:empty?).map(&:to_i)
 
+    # Excpetion handling for nigative numbers in string
+    negatives = nums.select { |n| n < 0 }
+    raise ArgumentError, "Negative numbers not allowed: #{negatives.join(',')}" if negatives.any?
+
     nums.sum
   end
 end
