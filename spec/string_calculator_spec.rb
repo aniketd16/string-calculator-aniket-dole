@@ -26,9 +26,13 @@ RSpec.describe StringCalculator do
   end
 
   it 'should supports custom single-char delimiter' do
+    expect(calc.add("//;\n1;2")).to eq(3)
+    expect(calc.add("//|\n2|3|4")).to eq(9)
   end
 
   it 'should supports multi-char delimiter in brackets' do
+    expect(calc.add("//[***]\n1***2***3")).to eq(6)
+    expect(calc.add("//[sep]\n5sep5")).to eq(10)
   end
 
   it 'should raises error for negative number' do
