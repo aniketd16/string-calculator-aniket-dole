@@ -17,10 +17,12 @@ RSpec.describe StringCalculator do
     expect(calc.add('50,10,10,20')).to eq(90)
   end
 
-  it 'should returns sum for two comma-separated numbers' do
+  it 'should handles new lines as delimiters' do
+    expect(calc.add("4\n5\n6")).to eq(15)
   end
 
-  it 'should handles new lines as delimiters' do
+  it 'should returns sum for two comma-separated numbers and delimiters' do
+    expect(calc.add("1\n2,3")).to eq(6)
   end
 
   it 'should supports custom single-char delimiter' do
