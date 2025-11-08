@@ -1,7 +1,7 @@
 class StringCalculator
+
   def add(numbers)
     return 0 if numbers.nil? || numbers.empty?
-
     delimiters = [",", "\n"]
 
     # Handle single or multi-char delimiter in brackets
@@ -27,4 +27,5 @@ class StringCalculator
 
     nums.sum
   end
+
 end
